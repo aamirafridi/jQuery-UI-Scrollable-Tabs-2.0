@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="title" content="jQuery ui-Scrollable tabs plugin v1.0 by Aamir Afridi" />
+		<meta name="keywords" content="jquery, tabs, scrollable, scroll, aamir, afridi, aamir afridi, js, javascript, script, plugin, jquery plugin, jq, tab">
+
+		<title>jQuery UI Scrollable Tabs v2.0</title>
+		<link type="text/css" href="css/ui-lightness/jquery.ui.all.css" rel="stylesheet" />
+		<link type="text/css" href="css/sh/sh_style.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/jquery.scrollabletab.js"></script>
+        <script type="text/javascript" src="js/jquery.init.js"></script>
+		<style type="text/css">
+			body{ font-size: 11px;font-family:"Helvetica Neue",HelveticaNeue,Helvetica,sans-serif; margin: 50px 70px;}
+			p { font-size:13px}
+			h2 {font-size:16px;}
+			.tabs {width:600px;}
+			
+			
+			
+			/*CSS only for scrollable tabs*/
+			.stMainWrapper ul.ui-tabs-nav {
+				position:relative;
+				overflow:hidden;
+			}
+			
+			.stMainWrapper ul.ui-tabs-nav li {
+				position:absolute;
+				top:3px; /*do not set 'left' should be done in the plugin after some calculations*/
+			}
+			
+			.stMainWrapper ul.ui-tabs-nav li.stHasCloseBtn a {
+				padding-right:5px;
+			}
+			
+			.stMainWrapper ul.ui-tabs-nav li.stFirstTab {
+				margin-right:3px;
+			}
+			
+			.stMainWrapper ul.ui-tabs-nav li span.stCloseBtn {
+				float:left;
+				margin-top:6px;
+				margin-right:4px;
+				border:none;
+				cursor:pointer;
+			}
+			
+			.stNavMain {
+				list-style:none;
+				margin: 0 !important;
+				padding: 0 1px 0 1px !important;
+				position:relative;
+				border:none !important;
+				width:100%;
+			}
+			
+			.stNavMain li {
+				position:absolute;
+				width:16px;
+				border-top:none !important;
+				border-bottom:none !important;
+				cursor:pointer;
+				margin-top:-1px;
+			}
+
+			.stNavMain li .ui-icon {
+				margin-top:38%;
+			}
+			
+			.stNavMain li.stNavNextArrow,
+			.stNavMain li.stNavLastArrow {
+				border-right:none !important;
+				right:3px;
+			}
+			
+			.stNavMain li.stNavPrevArrow,
+			.stNavMain li.stNavFirstArrow {
+				border-left:none !important;
+			}
+			
+			/*End of scrollable tabs css*/
+		</style>
+	</head>
+	<body style="margin-left:30%; margin-top:10px;">
+	<br /><br />
+	<div id="example_1" class="tabs">
+		<ul>
+			<li><a href="#tabs-1">Tab 1</a></li>
+			<li><a href="#tabs-2">This is tab 2</a></li>
+			<li><a href="#tabs-3">This is tab number 3</a></li>
+			<li><a href="#tabs-4">Tab no 4</a></li>
+			<li><a href="#tabs-5">And tab number 5</a></li>
+			<li><a href="#tabs-6">Tab number 6</a></li>
+			<li><a href="#tabs-7">And last tab number 7</a></li>
+            <li><a href="#tabs-8">Very very long name 8</a></li>
+            <li><a href="#tabs-9">Short name 9</a></li>
+		</ul>
+		<div id="tabs-1">Tab 1<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+		<div id="tabs-2">This is tab 2<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+		<div id="tabs-3">This is tab number 3<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+		<div id="tabs-4">Tab no 4<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+		<div id="tabs-5">And this is the tab number 5<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+		<div id="tabs-6">Tab number 6<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+		<div id="tabs-7">And last tab number 7<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+        <div id="tabs-8">Very very long name 8<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+        <div id="tabs-9">Short name 9<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit vulputate porttitor. Fusce purus leo, faucibus a sagittis congue, molestie tempus felis. Donec convallis semper enim, varius sagittis eros imperdiet in. Vivamus semper sem at metus mattis a aliquam neque ornare. Proin sed semper lacus.</div>
+</div>
+    
+    <br /><br />
+    
+    
+	<a class="ui-state-default ui-corner-all" id="f" href="#" style="padding:20px;text-decoration:none;position:relative"> First </a> &nbsp;&nbsp;&nbsp; 
+	<a class="ui-state-default ui-corner-all" id="p" href="#" style="padding:20px;text-decoration:none;position:relative"> Prev </a> &nbsp;&nbsp;&nbsp; 
+	<a class="ui-state-default ui-corner-all" id="n" href="#" style="padding:20px;text-decoration:none;position:relative"> Next </a> &nbsp;&nbsp;&nbsp; 
+	<a class="ui-state-default ui-corner-all" id="l" href="#" style="padding:20px;text-decoration:none;position:relative"> Last </a> 
+	
+	<br /><br /><br /><br />
+	
+	
+    <div>
+		<div style="margin:20px 0;float:left">
+			<a class="ui-state-default ui-corner-all" id="addTab_1" href="#" style="padding:6px 6px 6px 17px;text-decoration:none;position:relative">
+				<span class="ui-icon ui-icon-plus" style="position:absolute;top:4px;left:1px"></span>
+				Add new tab using <span class="myCode ui-state-active">$tabs.trigger('addTab', [label,content])</span>
+			</a>
+		</div>
+		<div style="margin:20px 0 20px 8px;float:left;">
+			<a class="ui-state-default ui-corner-all" id="addUiTab" href="#" style="padding:6px 6px 6px 17px;text-decoration:none;position:relative">
+				<span class="ui-icon ui-icon-plus" style="position:absolute;top:4px;left:1px"></span>
+				Add new tab using <span class="myCode ui-state-active">$tabs.tabs('add','#'+tabid,label)</span>
+			</a>
+		</div>
+		<div style="clear:both;margin:20px 0;">
+			<a class="ui-state-default ui-corner-all" id="removeTab" href="#" style="padding:6px 6px 6px 17px;text-decoration:none;position:relative">
+				<span class="ui-icon ui-icon-plus" style="position:absolute;top:4px;left:1px"></span>
+				Remove last tab using <span class="myCode ui-state-active">$tabs.tabs('remove',$tabs.tabs('length')-1)</span>
+			</a>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+    
+</body>
+</html>
