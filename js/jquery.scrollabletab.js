@@ -287,7 +287,9 @@ $.fn.scrollabletabs = function(options)
 			_callBackFnc(o.onTabScroll,e,$tab)
 			
 			//Finally stop the event
-			e.preventDefault();
+			if(e){
+				e.preventDefault();
+			}
 		}
 		
 		function _addCustomerSelToCollection(col,nav)
